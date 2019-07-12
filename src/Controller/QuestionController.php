@@ -62,7 +62,12 @@ class QuestionController extends ApiController
             
         }
 
-        return $this->respondCreated($questionRepository->transform($question));
+        $response = [
+            "message" => "Question created successfully !",
+            "data" => $questionRepository->transform($question)
+        ];
+
+        return $this->respondCreated($response);
         
     }
 
